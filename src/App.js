@@ -8,21 +8,27 @@ import "./styles.css";
 const App = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState([true]);
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const fetchItems = async () => {
-      const result = await axios("https://www.nokeynoshade.party/api/queens");
-      console.log(result.data);
+      setIsLoading(true);
+      const result = await axios(
+        `https://www.nokeynoshade.party/api/queens?names=${query}`
+      );
+
+      // console.log(result.data);
+
       setItems(result.data);
       setIsLoading(false);
     };
     fetchItems();
-  }, []);
+  }, [query]);
 
   return (
     <div className="container">
       <Header />
-      <Search />
+      <Search getQuery={(q) => setQuery(q)} />
       <QueenGrid isLoading={isLoading} items={items} />
     </div>
   );

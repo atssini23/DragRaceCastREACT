@@ -1,9 +1,10 @@
 import React from "react";
 import QueenItem from "./QueenItem";
+import Spinner from "../ui/Spinner";
 
 const QueenGrid = ({ items, isLoading }) => {
   return isLoading ? (
-    <h2>Loading...</h2>
+    <Spinner />
   ) : (
     <section className="cards">
       {items.map((item) => (
