@@ -2,6 +2,9 @@ import React from "react";
 
 const QueenItem = ({ item }) => {
   //console.log(item);
+  //console.log(item.seasons[0].seasonNumber);
+  //console.log(item.seasons[0].place);
+
   return (
     <div className="card">
       <div className="card-inner">
@@ -15,10 +18,10 @@ const QueenItem = ({ item }) => {
               <strong>Quote: </strong> {item.quote}
             </li>
             <li>
-              <strong>Season: </strong>
+              <strong>Season: </strong> {item.seasons[0].seasonNumber}
             </li>
             <li>
-              <strong>Season Place: </strong>
+              <strong>Season Place: </strong> {item.seasons[0].place}
             </li>
           </ul>
         </div>
